@@ -12,9 +12,11 @@ const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(
 
 	//App을 Provider로 감싸주고, configStore에서 export default 한 store를 넣어줍니다.
+
   <Provider store={store}>
-    <App />
+      <App />
   </Provider>
+  
 );
 
 // If you want to start measuring performance in your app, pass a function

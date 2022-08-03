@@ -1,14 +1,20 @@
 import React from "react";
 import { useDispatch, useSelector } from "react-redux";
+import { useNavigate } from "react-router-dom";
 import styled from "styled-components";
 import { deleteTodo } from "../redux/modules/todo";
 import { completeTodo } from "../redux/modules/todo";
 
 const List = () => {
-  const { todos } = useSelector((state) => state.todos);
-  const dispatch = useDispatch();
+    const { todos } = useSelector((state) => state.todos);
+    const dispatch = useDispatch();
+    const navigate = useNavigate();
 
   console.log(todos)
+
+//   const onDetailHandler = (todo) => {
+//      navigate(`/todolist/${todo.id}`);
+//   };
 
   return (
     <>
@@ -18,9 +24,11 @@ const List = () => {
           .filter((todo)=>todo.isDone===false)
           .map((todo) => ( 
             <StTodo key={todo.id}>
-              <a href={todo.id}> 상세보기 </a> 
-              <h2>{todo.title}</h2>  
-              <p>{todo.body}</p>
+            <button onClick={()=>{
+                navigate(`/Detail/${todo.id}`)
+            }}> 상세보기 </button> 
+            <h2>{todo.title}</h2>  
+            <p>{todo.body}</p>
 
               <StBtn color="violet" 
                 onClick={()=>{
@@ -61,7 +69,7 @@ const List = () => {
   );
 };
 
-export default List;
+export {List};
 
 
 const StTodos = styled.div`
@@ -87,3 +95,12 @@ const StBtn = styled.button`
   border-radius: 10px;
   background-color: ${props=>props.color};
 `;
+
+// const DetailBtn = styled.button`
+//   background-color: #fff;
+//   border: 2px solid blueviolet;
+//   border-radius: 8px;
+//   cursor: pointer;
+//   height: 40px;
+//   width: 33%;
+// `;

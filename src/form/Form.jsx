@@ -2,7 +2,6 @@ import React, { useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { addTodo, deleteTodo } from "../redux/modules/todo";
 import styled from "styled-components";
-import TodoListContainer from "../list/List";
 
 
 const Form = () => {
@@ -11,7 +10,7 @@ const Form = () => {
     const todos = useSelector((state) => state.todos.todos);
     const dispatch = useDispatch();
 
-    console.log(todos)
+    // console.log(todos)
   
     const onSubmitHandler = (e) => {
       e.preventDefault();

@@ -1,21 +1,12 @@
 import React from "react";
-import styled from "styled-components";
-
-import { Form } from "./form/Form"; 
-import { Header } from "./header/Header";
-import List from "./list/List";
-
-
+import { Router } from "./shared/Router";
 
 
 const App = () => {
-  return (
-    <>
-    <Header />
-    <Form />
-    <List />
-    </>
-  );
+  
+  return <Router />
+    
+  
 };
 
 export default App;

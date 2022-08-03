@@ -5,17 +5,18 @@ const Header = () => {
 
     return (
         <HeaderBox>
-        <div className="mytodolist">
-            <div>My Todo List</div>
-            <div>React</div>
-        </div>
+            <div className="mytodolist">
+                <div>My Todo List</div>
+                <div>React</div>
+            </div>
         </HeaderBox>
     );
   }
 
-  export {Header};
+  export { Header };
 
 const HeaderBox = styled.div`
     display: flex;
-    justify-content : space-between
+    justify-content : space-between;
+    height: 50px;
 `
