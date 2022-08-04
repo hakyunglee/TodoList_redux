@@ -1,15 +1,14 @@
 import React from "react";
 import styled from "styled-components";
 import todos from "../redux/modules/todo";
-import { useNavigate, usePa } from "react-router-dom";
+import { useNavigate, useParams } from "react-router-dom";
 import { useSelector } from "react-redux";
-import { View, Text, Button } from "react-native"
 
 const Detail = () => {
     const { id } = useParams();
     const [ Todo ] = useSelector((state) => 
         state.todos.todos.filter((todo)=>todo.id===id.toString()));
-    
+    const navigate = useNavigate();
    
   // useEffect(()=>{
   //  dispatch(detailTodo(id))
