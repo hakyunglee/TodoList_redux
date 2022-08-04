@@ -4,13 +4,16 @@ import Layout from "../layout/Layout";
 import React from "react";
 
 const Router = () => {
+    
+    return (
     <BrowserRouter>
         <Routes>
-            <Route path="/" element={< Layout />} />
+            <Route path="/" element={<Layout />} />
             <Route path="/detail/:id" element={< Detail />} />
             
         </Routes>  
     </BrowserRouter>
+    )
 }
 
-export { Router };
+export default Router;

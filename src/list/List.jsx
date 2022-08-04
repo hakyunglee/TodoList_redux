@@ -5,11 +5,12 @@ import styled from "styled-components";
 import { deleteTodo } from "../redux/modules/todo";
 import { completeTodo } from "../redux/modules/todo";
 
+
 const List = () => {
     const { todos } = useSelector((state) => state.todos);
     const dispatch = useDispatch();
     const navigate = useNavigate();
-
+    
   console.log(todos)
 
 //   const onDetailHandler = (todo) => {
@@ -22,7 +23,7 @@ const List = () => {
       <StTodos>
           {todos
           .filter((todo)=>todo.isDone===false)
-          .map((todo) => ( 
+          .map((todo) => (
             <StTodo key={todo.id}>
             <button onClick={()=>{
                 navigate(`/Detail/${todo.id}`)
@@ -30,13 +31,13 @@ const List = () => {
             <h2>{todo.title}</h2>  
             <p>{todo.body}</p>
 
-              <StBtn color="violet" 
+              <StBtn color="rgb(254, 187, 226)" 
                 onClick={()=>{
                 dispatch(deleteTodo(todo.id)); // 1) 버튼 클릭시 dispatch가 실행되고, ()안에 있는 액션객체가 리듀서로 전달된다.
                 }}
               > 삭제 </StBtn>
 
-              <StBtn color="skyblue" 
+              <StBtn color="rgb(168, 214, 249)" 
                 onClick={()=>{
                 dispatch(completeTodo(todo.id));
                 }}
@@ -52,10 +53,12 @@ const List = () => {
           .filter((todo)=>todo.isDone===true)
           .map((todo) => ( 
             <StTodo key={todo.id}>
-              <a href={todo.id}> 상세보기 </a>
+              <button onClick={()=>{
+                navigate(`/Detail/${todo.id}`)
+            }}> 상세보기 </button> 
               <h2>{todo.title}</h2>  
               <p>{todo.body}</p>
-              <StBtn color="orange"onClick={()=>{
+              <StBtn color="rgb(254, 187, 226)"onClick={()=>{
                 dispatch(deleteTodo(todo.id));
               }}> 삭제 </StBtn>
               <StBtn color="lightgray" onClick={()=>{
@@ -79,7 +82,7 @@ const StTodos = styled.div`
 `;
 
 const StTodo = styled.div`
-  background-color: hsl(91.5463917525773, 76.37795275590551%, 75.09803921568627%);
+  background-color: #c7bdf4;
   min-width: 25%;
   min-height: 200px;
   padding: 0 24px;
@@ -97,7 +100,7 @@ const StBtn = styled.button`
 `;
 
 // const DetailBtn = styled.button`
-//   background-color: #fff;
+//   background-color: #e99ac8;
 //   border: 2px solid blueviolet;
 //   border-radius: 8px;
 //   cursor: pointer;

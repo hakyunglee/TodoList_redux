@@ -9,11 +9,11 @@ const Layout = () => {
 
     return (
 
-      <Box>
-        <Header />
-        <Form />
-        <List />
-      </Box>      
+    <Box>
+      <Header />
+      <Form />
+      <List />
+    </Box>      
     
     );
   };

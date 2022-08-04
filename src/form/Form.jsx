@@ -1,16 +1,17 @@
 import React, { useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { addTodo, deleteTodo } from "../redux/modules/todo";
+import { addTodo } from "../redux/modules/todo";
+import { v4 as uuid } from 'uuid';
 import styled from "styled-components";
 
 
 const Form = () => {
     const [title, setTitle] = useState("");
     const [body, setBody] = useState("");
-    const todos = useSelector((state) => state.todos.todos);
+    //const todos = useSelector((state) => state.todos.todos);
     const dispatch = useDispatch();
 
-    // console.log(todos)
+    //console.log(todos)
   
     const onSubmitHandler = (e) => {
       e.preventDefault();
@@ -18,10 +19,11 @@ const Form = () => {
   
       dispatch(
         addTodo({
-          id: todos.length + 1,
+          id: uuid(),
           title,
           body,
           isDone: false,
+         
         }),
       );
       setTitle('');
